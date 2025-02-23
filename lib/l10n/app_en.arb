@@ -1,0 +1,58 @@
+{
+    "title": "TVA Convert",
+    "@title": {
+        "description": "The name of the application"
+    },
+    "display": "Display",
+    "@display": {
+        "description": "Display elements"
+    },
+    "label_ht": "Tax Excluded",
+    "@label_ht": {
+        "description": "Label for the price excluding tax"
+    },
+    "label_ttc": "Tax Included",
+    "@label_ttc": {
+        "description": "Label for the price including tax"
+    },
+    "label_tva": "VAT",
+    "@label_tva": {
+        "description": "Label for value-added tax"
+    },
+    "label_pourcentage": "Percentage",
+    "@label_pourcentage": {
+        "description": "Label for the percentage"
+    },
+    "about": "About",
+    "@about": {
+        "description": "Information page about the application"
+    },
+    "creator": "Creator",
+    "@creator": {
+        "description": "Information page about the creator"
+    },
+    "languages": "Languages",
+    "@languages": {
+        "description": "Languages section"
+    },
+    "darkmode": "Dark Mode",
+    "@darkmode": {
+        "description": "Option to enable dark mode"
+    },
+    "language": "Language",
+    "@language": {
+        "description": "Select the language for the application"
+    },
+    "suggestedlanguages": "Suggested Languages",
+    "@suggestedlanguages": {
+        "description": "List of suggested languages"
+    },
+    "french": "French",
+    "@french": {
+        "description": "Option for the French language"
+    },
+    "english": "English",
+    "@english": {
+        "description": "Option for the English language"
+    }
+}

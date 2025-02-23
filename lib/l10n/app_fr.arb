@@ -1,0 +1,58 @@
+{
+    "title": "TVA Convert",
+    "@title": {
+        "description": "Le nom de l'application"
+    },
+    "display": "Affichage",
+    "@display": {
+        "description": "Affichage des éléments"
+    },
+    "label_ht": "Prix HT",
+    "@label_ht": {
+        "description": "Label pour le prix hors taxes"
+    },
+    "label_ttc": "Prix TTC",
+    "@label_ttc": {
+        "description": "Label pour le prix toutes taxes comprises"
+    },
+    "label_tva": "TVA",
+    "@label_tva": {
+        "description": "Label pour la taxe sur la valeur ajoutée"
+    },
+    "label_pourcentage": "Pourcentage",
+    "@label_pourcentage": {
+        "description": "Label pour le pourcentage"
+    },
+    "about": "À propos",
+    "@about": {
+        "description": "Page d'information sur l'application"
+    },
+    "creator": "Créateur",
+    "@creator": {
+        "description": "Page d'information sur le créateur"
+    },
+    "languages": "Langages",
+    "@languages": {
+        "description": "Section des choix de langages"
+    },
+    "darkmode": "Thème sombre",
+    "@darkmode": {
+        "description": "Option pour activer le mode sombre"
+    },
+    "language": "Langage",
+    "@language": {
+        "description": "Sélection du langage de l'application"
+    },
+    "suggestedlanguages": "Langages suggérés",
+    "@suggestedlanguages": {
+        "description": "Liste de langages suggérés"
+    },
+    "french": "Français",
+    "@french": {
+        "description": "Option pour le langage français"
+    },
+    "english": "Anglais",
+    "@english": {
+        "description": "Option pour le langage anglais"
+    }
+}
