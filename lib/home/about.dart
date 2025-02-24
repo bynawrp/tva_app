@@ -46,32 +46,42 @@ class _AboutPageState extends State<AboutPage> {
       ),
       backgroundColor: notifire.getprimerycolor,
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
+        child: Stack(
           children: [
-            Image.asset(
-              "images/logo_inducido.png",
-              width: width / 1.8,
+            Container(
+              height: height,
+              width: width,
+              color: Colors.transparent,
+              child: Image.asset("images/background.png", fit: BoxFit.cover),
             ),
-            Text(
-              "${AppLocalizations.of(context)!.creator} : Lucas JEAN",
-              style: TextStyle(
-                fontSize: height / 55,
-                color: notifire.getdarkscolor,
-                fontFamily: 'Gilroy Light',
+            Align(
+              alignment: Alignment.center,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Image.asset("images/logo_inducido.png", width: width / 1.8),
+                  Text(
+                    "${AppLocalizations.of(context)!.creator} : Lucas JEAN",
+                    style: TextStyle(
+                      fontSize: height / 55,
+                      color: notifire.getdarkscolor,
+                      fontFamily: 'Gilroy Light',
+                    ),
+                  ),
+                  const SizedBox(height: 15),
+                  Text(
+                    'Version : 1.0.1 (beta)',
+                    style: TextStyle(
+                      fontSize: height / 55,
+                      color: notifire.getdarkscolor,
+                      fontFamily: 'Gilroy Light',
+                    ),
+                  ),
+                  SizedBox(height: height / 10),
+                ],
               ),
             ),
-            const SizedBox(height: 15),
-            Text(
-              'Version : 1.0.1 (beta)',
-              style: TextStyle(
-                fontSize: height / 55,
-                color: notifire.getdarkscolor,
-                fontFamily: 'Gilroy Light',
-              ),
-            ),
-            SizedBox(height: height / 10),
           ],
         ),
       ),

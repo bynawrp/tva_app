@@ -42,34 +42,41 @@ class _ParametresState extends State<Parametres> {
         ),
       ),
       backgroundColor: notifire.getprimerycolor,
-      body: Column(
+      body: Stack(
         children: [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: width / 20),
-            child: Divider(
-              thickness: 0.6,
-              color: Colors.grey.withOpacity(0.4),
-            ),
+          Container(
+            height: height,
+            width: width,
+            color: Colors.transparent,
+            child: Image.asset("images/background.png", fit: BoxFit.cover),
           ),
-          SizedBox(
-            height: height / 100,
-          ),
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const Language(),
+          Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: width / 20),
+                child: Divider(thickness: 0.6, color: Colors.grey),
+              ),
+              SizedBox(height: height / 100),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Language()),
+                  );
+                },
+                child: settingtype(
+                  "images/languages.png",
+                  AppLocalizations.of(context)!.languages,
                 ),
-              );
-            },
-            child: settingtype("images/languages.png",
-                AppLocalizations.of(context)!.languages),
+              ),
+              SizedBox(height: height / 80),
+              darkmode(
+                Icons.nightlight_round,
+                AppLocalizations.of(context)!.darkmode,
+              ),
+              SizedBox(height: height / 80),
+            ],
           ),
-          SizedBox(height: height / 80),
-          darkmode(
-              Icons.nightlight_round, AppLocalizations.of(context)!.darkmode),
-          SizedBox(height: height / 80),
         ],
       ),
     );
@@ -79,11 +86,7 @@ class _ParametresState extends State<Parametres> {
     return Row(
       children: [
         SizedBox(width: width / 20),
-        Icon(
-          icon,
-          size: height / 34,
-          color: notifire.getdarkscolor,
-        ),
+        Icon(icon, size: height / 34, color: notifire.getdarkscolor),
         SizedBox(width: width / 30),
         Text(
           title,
@@ -103,16 +106,14 @@ class _ParametresState extends State<Parametres> {
             value: notifire.getIsDark,
             onChanged: (val) async {
               final prefs = await SharedPreferences.getInstance();
-              setState(
-                () {
-                  notifire.setIsDark = val;
-                  prefs.setBool("setIsDark", val);
-                },
-              );
+              setState(() {
+                notifire.setIsDark = val;
+                prefs.setBool("setIsDark", val);
+              });
             },
           ),
         ),
-        SizedBox(width: width / 20)
+        SizedBox(width: width / 20),
       ],
     );
   }

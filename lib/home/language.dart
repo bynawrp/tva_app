@@ -53,9 +53,10 @@ class _LanguageState extends State<Language> {
         title: Text(
           AppLocalizations.of(context)!.language,
           style: TextStyle(
-              color: notifire.getdarkscolor,
-              fontSize: height / 40,
-              fontFamily: 'Gilroy Bold'),
+            color: notifire.getdarkscolor,
+            fontSize: height / 40,
+            fontFamily: 'Gilroy Bold',
+          ),
         ),
       ),
       backgroundColor: notifire.getprimerycolor,
@@ -63,13 +64,10 @@ class _LanguageState extends State<Language> {
         child: Stack(
           children: [
             Container(
-              height: height * 0.89,
+              height: height,
               width: width,
               color: Colors.transparent,
-              child: Image.asset(
-                "images/background.png",
-                fit: BoxFit.cover,
-              ),
+              child: Image.asset("images/background.png", fit: BoxFit.cover),
             ),
             Column(
               children: [
@@ -84,27 +82,27 @@ class _LanguageState extends State<Language> {
                         fontFamily: 'Gilroy Bold',
                         fontSize: height / 50,
                       ),
-                    )
+                    ),
                   ],
                 ),
                 SizedBox(height: height / 40),
-                sugesttype(AppLocalizations.of(context)!.english, 1,
-                    const Locale('en')),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: width / 20),
-                  child: Divider(
-                    thickness: 1,
-                    color: Colors.grey.withOpacity(0.4),
-                  ),
+                sugesttype(
+                  AppLocalizations.of(context)!.english,
+                  1,
+                  const Locale('en'),
                 ),
-                sugesttype(AppLocalizations.of(context)!.french, 2,
-                    const Locale('fr')),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: width / 20),
-                  child: Divider(
-                    thickness: 1,
-                    color: Colors.grey.withOpacity(0.4),
-                  ),
+                  child: Divider(thickness: 1, color: Colors.grey),
+                ),
+                sugesttype(
+                  AppLocalizations.of(context)!.french,
+                  2,
+                  const Locale('fr'),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: width / 20),
+                  child: Divider(thickness: 1, color: Colors.grey),
                 ),
               ],
             ),
@@ -127,9 +125,10 @@ class _LanguageState extends State<Language> {
             Text(
               title,
               style: TextStyle(
-                  color: notifire.getdarkscolor,
-                  fontSize: height / 45,
-                  fontFamily: 'Gilroy Medium'),
+                color: notifire.getdarkscolor,
+                fontSize: height / 45,
+                fontFamily: 'Gilroy Medium',
+              ),
             ),
             const Spacer(),
             Radio(

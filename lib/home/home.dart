@@ -112,17 +112,15 @@ class _HomeState extends State<Home> {
           height: 20,
           width: 20,
           margin: const EdgeInsets.all(8),
-          child: Image.asset(
-            'images/logo.png',
-            scale: 4,
-          ),
+          child: Image.asset('images/logo.png', scale: 4),
         ),
         title: Text(
           AppLocalizations.of(context)!.title,
           style: TextStyle(
-              color: notifire.getdarkscolor,
-              fontSize: height / 40,
-              fontFamily: 'Gilroy Bold'),
+            color: notifire.getdarkscolor,
+            fontSize: height / 40,
+            fontFamily: 'Gilroy Bold',
+          ),
         ),
         actions: [
           GestureDetector(
@@ -130,8 +128,9 @@ class _HomeState extends State<Home> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) =>
-                      Parametres(AppLocalizations.of(context)!.title),
+                  builder:
+                      (context) =>
+                          Parametres(AppLocalizations.of(context)!.title),
                 ),
               );
             },
@@ -141,9 +140,7 @@ class _HomeState extends State<Home> {
               scale: 4,
             ),
           ),
-          const SizedBox(
-            width: 10,
-          )
+          const SizedBox(width: 10),
         ],
       ),
       backgroundColor: notifire.getprimerycolor,
@@ -152,87 +149,103 @@ class _HomeState extends State<Home> {
           FocusScope.of(context).unfocus();
         },
         child: SingleChildScrollView(
-          child: Column(
+          child: Stack(
             children: [
-              Container(
-                color: notifire.getbackcolor,
-                height: height / 13,
-                width: width,
-                child: Image.asset("images/backphoto.png", fit: BoxFit.cover),
-              ),
-              Container(
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  children: [
-                    buildInputTVA(
-                        AppLocalizations.of(context)!.label_ht, htcController),
-                    const SizedBox(height: 15),
-                    Row(
-                      children: [
-                        Text(
-                          AppLocalizations.of(context)!.label_pourcentage,
-                          style: TextStyle(
-                            color: notifire.getdarkscolor,
-                            fontFamily: 'Gilroy Bold',
-                            fontSize: height / 45,
-                          ),
-                        ),
-                      ],
+              Column(
+                children: [
+                  Container(
+                    color: notifire.getbackcolor,
+                    height: height / 13,
+                    width: width,
+                    child: Image.asset(
+                      "images/backphoto.png",
+                      fit: BoxFit.cover,
                     ),
-                    const SizedBox(height: 10),
-                    SizedBox(
-                      width: double.infinity,
-                      child: SegmentedButton<double>(
-                        segments: tvaPercent.map((tva) {
-                          return ButtonSegment<double>(
-                            value: tva,
-                            label: Text(
-                              "${tva.toStringAsFixed(1)}%",
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(20),
+                    child: Column(
+                      children: [
+                        buildInputTVA(
+                          AppLocalizations.of(context)!.label_ht,
+                          htcController,
+                        ),
+                        const SizedBox(height: 15),
+                        Row(
+                          children: [
+                            Text(
+                              AppLocalizations.of(context)!.label_pourcentage,
                               style: TextStyle(
-                                fontFamily: 'Gilroy Medium',
-                                fontSize: height / 55,
+                                color: notifire.getdarkscolor,
+                                fontFamily: 'Gilroy Bold',
+                                fontSize: height / 45,
                               ),
                             ),
-                          );
-                        }).toList(),
-                        selected: {selectedTvaPercent},
-                        showSelectedIcon: false,
-                        style: ButtonStyle(
-                          backgroundColor:
-                              WidgetStateProperty.resolveWith<Color?>(
-                            (states) => states.contains(WidgetState.selected)
-                                ? notifire.getambercolor
-                                : notifire.getprimerydarkcolor,
-                          ),
-                          foregroundColor:
-                              WidgetStateProperty.resolveWith<Color?>(
-                            (states) => states.contains(WidgetState.selected)
-                                ? Colors.white
-                                : notifire.getdarkscolor,
-                          ),
-                          shape: WidgetStateProperty.all(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+                        SizedBox(
+                          width: double.infinity,
+                          child: SegmentedButton<double>(
+                            segments:
+                                tvaPercent.map((tva) {
+                                  return ButtonSegment<double>(
+                                    value: tva,
+                                    label: Text(
+                                      "${tva.toStringAsFixed(1)}%",
+                                      style: TextStyle(
+                                        fontFamily: 'Gilroy Medium',
+                                        fontSize: height / 55,
+                                      ),
+                                    ),
+                                  );
+                                }).toList(),
+                            selected: {selectedTvaPercent},
+                            showSelectedIcon: false,
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  WidgetStateProperty.resolveWith<Color?>(
+                                    (states) =>
+                                        states.contains(WidgetState.selected)
+                                            ? notifire.getambercolor
+                                            : notifire.getprimerydarkcolor,
+                                  ),
+                              foregroundColor:
+                                  WidgetStateProperty.resolveWith<Color?>(
+                                    (states) =>
+                                        states.contains(WidgetState.selected)
+                                            ? Colors.white
+                                            : notifire.getdarkscolor,
+                                  ),
+                              shape: WidgetStateProperty.all(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
                             ),
+                            onSelectionChanged: (newSelection) {
+                              if (newSelection.isNotEmpty) {
+                                setTvaPercent(newSelection.first);
+                              }
+                            },
                           ),
                         ),
-                        onSelectionChanged: (newSelection) {
-                          if (newSelection.isNotEmpty) {
-                            setTvaPercent(newSelection.first);
-                          }
-                        },
-                      ),
+                        const SizedBox(height: 20),
+                        buildInputTVA(
+                          AppLocalizations.of(context)!.label_tva,
+                          tvaController,
+                          enable: true,
+                        ),
+                        const SizedBox(height: 20),
+                        buildInputTVA(
+                          AppLocalizations.of(context)!.label_ttc,
+                          ttcController,
+                        ),
+                        const SizedBox(height: 20),
+                      ],
                     ),
-                    const SizedBox(height: 20),
-                    buildInputTVA(
-                        AppLocalizations.of(context)!.label_tva, tvaController,
-                        enable: true),
-                    const SizedBox(height: 20),
-                    buildInputTVA(
-                        AppLocalizations.of(context)!.label_ttc, ttcController),
-                    const SizedBox(height: 20),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ],
           ),
@@ -243,8 +256,9 @@ class _HomeState extends State<Home> {
           Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) =>
-                    AboutPage(AppLocalizations.of(context)!.about)),
+              builder:
+                  (context) => AboutPage(AppLocalizations.of(context)!.about),
+            ),
           );
         },
         child: Icon(
@@ -257,8 +271,11 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Widget buildInputTVA(String label, TextEditingController controller,
-      {bool enable = false}) {
+  Widget buildInputTVA(
+    String label,
+    TextEditingController controller, {
+    bool enable = false,
+  }) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -279,8 +296,9 @@ class _HomeState extends State<Home> {
               readOnly: enable,
               cursorColor: notifire.getambercolor,
               controller: controller,
-              keyboardType:
-                  const TextInputType.numberWithOptions(decimal: true),
+              keyboardType: const TextInputType.numberWithOptions(
+                decimal: true,
+              ),
               autofocus: false,
               inputFormatters: [
                 TextInputFormatter.withFunction((oldValue, newValue) {
@@ -303,15 +321,11 @@ class _HomeState extends State<Home> {
                   fontSize: height / 50,
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: notifire.getambercolor,
-                  ),
+                  borderSide: BorderSide(color: notifire.getambercolor),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 border: OutlineInputBorder(
-                  borderSide: const BorderSide(
-                    color: Colors.grey,
-                  ),
+                  borderSide: const BorderSide(color: Colors.grey),
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
