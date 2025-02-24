@@ -1,0 +1,1 @@
+/home/lucas/Bureau/tva_app/build/app/intermediates/cxx/Debug/732s1n6b/obj/x86_64

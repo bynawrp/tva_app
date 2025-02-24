@@ -1,0 +1,2 @@
+/home/lucas/Bureau/tva_tools/android/app/.cxx/Debug/683h2c50/x86_64/CMakeFiles/edit_cache.dir
+/home/lucas/Bureau/tva_tools/android/app/.cxx/Debug/683h2c50/x86_64/CMakeFiles/rebuild_cache.dir
